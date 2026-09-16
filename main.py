@@ -1,15 +1,11 @@
 import asyncio
-import os
 
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv
 
+import env
 from ui import WelcomeView
 from utils import Log
-
-load_dotenv()
-TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
 
 class MyBot(commands.Bot):
@@ -49,7 +45,7 @@ class MyBot(commands.Bot):
 
 async def main():
     bot = MyBot()
-    await bot.start(TOKEN)
+    await bot.start(env.DISCORD_BOT_TOKEN)
 
 
 if __name__ == "__main__":
